@@ -31,6 +31,12 @@ RUN DEBIAN_FRONTEND=noninteractive \
 #PHP database extensions database (mysql)
 RUN docker-php-ext-install -j$(nproc) mysqli pdo pdo_mysql
 
+COPY xdebug-2.4.0.tgz /xdebug-2.4.0.tgz
+RUN cd / && tar -xvzf /xdebug-2.4.0.tgz && cd /xdebug-2.4.0 && phpize && ./configure && make && cp modules/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20151012 
+RUN echo "zend_extension = /usr/local/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so" > /usr/local/etc/php/php.ini
+RUN cat /usr/local/etc/php/php.ini
+ 
+
 ENV DEBIAN_FRONTEND interactive
 
 #PHPFPM runs as www-data, so change the uid to match the host user
