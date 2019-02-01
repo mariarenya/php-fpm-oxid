@@ -23,8 +23,7 @@ RUN docker-php-ext-install -j$(nproc) gd
 RUN docker-php-ext-install -j$(nproc) mbstring iconv  bcmath
 
 #PHP soap support: 
-RUN DEBIAN_FRONTEND=noninteractive \
- $apt_install libxml2-dev && docker-php-ext-install -j$(nproc) soap
+RUN $apt_install libxml2-dev && docker-php-ext-install -j$(nproc) soap
 
 #PHP database extensions database (mysql)
 RUN docker-php-ext-install -j$(nproc) mysqli pdo pdo_mysql
