@@ -42,8 +42,4 @@ ENV COMPOSER_HOME /tmp
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-#PHPFPM runs as www-data, so change the uid to match the host user
-#by using an extra script
-COPY start.sh /root/start.sh
-CMD /root/start.sh
 
