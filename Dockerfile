@@ -34,6 +34,9 @@ RUN $apt_install autoconf $PHPIZE_DEPS && pecl install xdebug-2.6.0 && docker-ph
 RUN $apt_install unzip
 RUN docker-php-ext-install -j$(nproc) zip
 
+RUN $apt_install mysql-client sudo
+RUN echo ALL ALL=NOPASSWD: ALL>>/etc/sudoers
+
 ENV COMPOSER_VERSION master
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /tmp
