@@ -38,8 +38,8 @@ RUN $apt_install mysql-client sudo
 RUN echo ALL ALL=NOPASSWD: ALL>>/etc/sudoers
 
 ENV COMPOSER_VERSION master
-ENV COMPOSER_ALLOW_SUPERUSER 1
-ENV COMPOSER_HOME /tmp
+#ENV COMPOSER_ALLOW_SUPERUSER 1
+#ENV COMPOSER_HOME /tmp
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
