@@ -1,4 +1,4 @@
-FROM php:7.1-fpm
+FROM php:5.6-fpm
 
 ENV apt_install="apt install -y --no-install-recommends"
 
